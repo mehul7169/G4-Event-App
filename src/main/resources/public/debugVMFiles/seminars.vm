@@ -1,0 +1,15 @@
+<!---DEBUG--->
+#set( $title = "Show Seminars" )
+#parse("public/top.vm")
+<body>
+    #if ($seminars)
+    <h1>All current/upcoming seminars:</h1>
+    <div>
+        #foreach($s in $seminars)
+            <li>
+                $s.title : $s.description
+            </li>
+        #end
+    </div>
+    #end
+#parse("public/bottom.vm")

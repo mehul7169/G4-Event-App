@@ -1,0 +1,63 @@
+<!--- DEBUG --->
+#set( $title = "Add an Event" )
+#parse("public/top.vm")
+<body>
+
+<h2>Add a new Event</h2>
+<legend>Add an Event:</legend>
+<form action="/otherevents" method="post" >
+    <fieldset>
+        <div>
+            <label for="title">Event Title: </label>
+            <input type="text" name="title" placeholder="title" id="title" required />
+        </div>
+        <br />
+        <div>
+            <label for="description">Event Description: </label>
+            <input type="text" name="description" placeholder="description" id="description" required />
+        </div>
+        <br />
+        <div>
+            <label for="addLine1">Address Line 1: </label>
+            <input type="text" name="addLine1" placeholder="addLine1" id="addLine1" required />
+        </div>
+        <br />
+        <div>
+            <label for="addLine2">Address Line 2: </label>
+            <input type="text" name="addLine2" placeholder="addLine2" id="addLine2" />
+        </div>
+        <br />
+        <div>
+            <label for="city">City: </label>
+            <input type="text" name="city" placeholder="city" id="city" required />
+        </div>
+        <br />
+        <div>
+            <label for="state">State: </label>
+            <input type="text" name="state" placeholder="state" id="state" required />
+        </div>
+        <br />
+        <div>
+            <label for="state">ZIP Code: </label>
+            <input type="text" name="zip" placeholder="zip" id="zip" required />
+        </div>
+        <br />
+        <div>
+            <label for="datetime">Event Date: </label>
+            <input type="date" name="datetime" id="datetime" required />
+        </div>
+        <br />
+        <div>
+            <label for="priv">Private Event? </label>
+            <select name = "priv">
+                <option value = "true" selected>Yes</option>
+                <option value = "false">No</option>
+            </select>
+        </div>
+        <br />
+        <input type="submit" value="Add" id="submitAddJob" />
+    </fieldset>
+</form>
+
+
+#parse("public/bottom.vm")

@@ -1,0 +1,143 @@
+/*headings*/
+h1, h2, h3, h4, h5 {
+    font-family: "Century Gothic", sans-serif;
+    color: white;
+    font-style: italic;
+    font-weight: bolder;
+    padding: 10px;
+    margin: 10px auto;
+}
+
+h2.invite {
+    font-family: "Century Gothic", sans-serif;
+    color: gray;
+    font-style: italic;
+    font-weight: bolder;
+    padding: 10px;
+    margin: 10px auto;
+}
+/*page background*/
+body {
+    background: linear-gradient(45deg, lightsteelblue, lightblue, dodgerblue);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+    height: 100vh;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+/* unvisited link */
+a:link {
+    font-family: "Century Gothic", sans-serif;
+    color: white;
+}
+
+/* visited link */
+a:visited {
+    font-family: "Century Gothic", sans-serif;
+    color: white;
+}
+
+/* mouse over link */
+a:hover {
+    font-family: "Century Gothic", sans-serif;
+    color: lightgoldenrodyellow;
+}
+
+/* selected link */
+a:active {
+    font-family: "Century Gothic", sans-serif;
+    color: khaki;
+}
+
+/*submit button*/
+[type='submit'] {
+    padding: 5px 35px;
+    background-color: whitesmoke;
+    color: gray;
+    border: 2px solid gray;
+    font-family: "Century Gothic", sans-serif;
+    font-weight: bolder;
+    font-size: 16px;
+    text-align: center;
+    margin-left: 45%;
+    display:block;
+}
+
+[type='submit']:hover  {
+    padding: 5px 35px;
+    background-color: gray;
+    color: white;
+    border: 2px solid gray;
+    font-family: "Century Gothic", sans-serif;
+    font-weight: bolder;
+    font-size: 16px;
+    text-align: center;
+    margin-left: 45%;
+    display:block;
+}
+/*lists*/
+li {
+    list-style-type: none;
+    padding: 0;
+    color: white;
+    font-weight: bolder;
+    font-family: "Century Gothic", sans-serif;
+    margin: auto;
+}
+/*get rid of outlines around fieldsets*/
+fieldset {
+    border: 0;
+}
+
+/*forms*/
+.container, form {
+    background-color: whitesmoke;
+    border-radius: 9px;
+    border-color: whitesmoke;
+    margin: auto;
+    max-width: 800px;
+    padding: 1px 0;
+}
+
+/*form label*/
+.container, form label {
+    font-size: 20px;
+    color: gray;
+    font-weight: bolder;
+    border-radius: 9px;
+    border-color: whitesmoke;
+    background-color: whitesmoke;
+    font-family: "Century Gothic", sans-serif;
+    text-align: center;
+    max-height: 200px;
+    margin: auto;
+}
+
+/*vertical space between list items*/
+li{
+    margin: 8px 0;
+}
+
+/*text boxes, text areas, select menus*/
+form input[type=text], input[type=number], textarea, select {
+    width: 15%;
+    border-radius: 9px;
+    border: 2px solid gray;
+    font-family: "Century Gothic", sans-serif;
+    text-align: center;
+    color: gray;
+    background-color: whitesmoke;
+    margin: 10px auto;
+    font-size: 16px;
+}

@@ -1,0 +1,5 @@
+JBApp.db
+.gradle
+.idea
+build
+/EventApp.db

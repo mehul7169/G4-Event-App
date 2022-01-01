@@ -1,0 +1,134 @@
+<!--- DEBUG --->
+<button class="open-button" onclick="openForm()">+</button>
+
+<div class="form-popup-right" id="myForm">
+    <form class="form-container" onsubmit="return addEvent()">
+        <h1 style="font-family: Arial">Add an Event</h1> <br>
+
+        <label for="select type">Pick the Type of Event to Add </label>
+        <select name="eventType" id="eventType">
+            <option value="" disabled selected>Select Type</option>
+            <option value="seminar">Seminar: an academic speech or lecture</option>
+            <option value="socialevent">Social Event: a party, gathering, etc.</option>
+        </select>
+        <br> <br>
+        <div>
+            <label for="title">*Event Title (must be unique): </label>
+            <input type="text" name="title" placeholder="title" id="title" required />
+            </div>
+            <div>
+                <label for="description">Event Description: </label>
+                <input type="text" name="description" placeholder="description" id="description" />
+            </div>
+            <div>
+                <label for="addLine1">*Address Line 1: </label>
+                <input type="text" name="addLine1" placeholder="addLine1" id="addLine1" required />
+            </div>
+            <div>
+                <label for="addLine2">Address Line 2: </label>
+                <input type="text" name="addLine2" placeholder="addLine2" id="addLine2" />
+            </div>
+            <div>
+                <label for="city">*City: </label>
+                <input type="text" name="city" placeholder="city" id="city" required />
+            </div>
+            <div>
+                <label for="state">*State: </label>
+                <input type="text" name="state" placeholder="state" id="state" required />
+            </div>
+            <div>
+                <label for="state">*ZIP Code: </label>
+                <input type="text" name="zip" placeholder="zip" id="zip" required />
+            </div>
+             <br>
+            <div>
+                <label for="datetime">*Event Date: </label>
+                <input type="date" name="datetime" id="datetime" required />
+            </div>
+             <br>
+            <div>
+                <label for="priv">*Private Event? </label>
+                <select name = "priv" id = "priv" class = "priv">
+                    <option value = "true" selected>Yes</option>
+                    <option value = "false">No</option>
+                </select>
+            </div>
+             <br>
+            <div>
+                <label for="individual">*Select a Host: </label>
+                <select name="individual" id="host">
+                    #foreach($i in $individuals)
+                        <option value="$i.ID" id="$i.ID">$i.name</option>
+                    #end
+                </select>
+            </div>
+            <br>
+            <div>
+                <label for="capacity">Event Capacity: </label>
+                <input type="number" name="capacity" id="capacity" />
+            </div>
+            <br>
+            <div>
+                <label>Content tag options: </label>
+                <select id = "eventtags" class = "eventtags" name = "eventtags" multiple>
+                    <label for="eventtags">Choose a tag</label>
+                    <script>
+                        for (i=0; i< contenttags.tags.length; i++) {
+                            document.write('<option value ="' + contenttags.tags[i] + '">' + contenttags.tags[i] + '</option>');
+                        }
+                    </script>
+                </select>
+            </div>
+
+        <div class="seminar" id="seminar">
+            <br>
+            <div>
+                <label for="speaker">Speaker's Name: </label>
+                <input type="text" name="speaker" placeholder="speaker's name" id="speaker" />
+            </div>
+            <div>
+                <label for="school">Speaker's School: </label>
+                <input type="text" name="school" placeholder="school's name" id="school" />
+            </div>
+            <div>
+                <label for="field">Speaker's Field: </label>
+                <input type="text" name="field" placeholder="speaker's field" id="field" />
+            </div>
+        </div>
+
+        <div class="socialevent" id="socialevent">
+            <br>
+            <div>
+                <label for="organization">Organization Name: </label>
+                <input type="text" name="organization" placeholder="organization name" id="organization" />
+            </div>
+        </div>
+
+        <br>
+        <button type="submit" class="btn">add event</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">cancel</button>
+    </form>
+</div>
+
+<script>
+    function openForm() {
+        document.getElementById("myForm").style.display = "block";
+    }
+    function closeForm() {
+        console.log("closing form");
+        document.getElementById("myForm").style.display = "none";
+    }
+
+    // hide all the divs
+    $('div.seminar').hide()
+    $('div.socialevent').hide()
+
+
+    // Show and hide selected div
+    $('#eventType').change(function () {
+        var value = this.value;
+        $('div.seminar').hide()
+        $('div.socialevent').hide()
+        $('#' + this.value).show();
+    });
+</script>

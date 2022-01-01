@@ -1,0 +1,19 @@
+<!---DEBUG--->
+#set( $title = "Show Individuals" )
+#parse("public/top.vm")
+<body>
+    #if ($individuals)
+    <h1>All individual users:</h1>
+    <div>
+        <ol>
+        <p>
+            #foreach($i in $individuals)
+                <li>
+                    User: $i.name
+                </li>
+            #end
+            </p>
+        </ol>
+    </div>
+    #end
+#parse("public/bottom.vm")

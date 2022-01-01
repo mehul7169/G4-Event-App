@@ -1,0 +1,16 @@
+<!--- DEBUG --->
+#set( $title = "Add a Group" )
+#parse("public/top.vm")
+<body>
+
+<h2>Add a new group</h2>
+<form action="/groups" method="post" >
+    <fieldset>
+        <div>
+            <label for="name">Name: </label>
+            <input type="text" name="name" placeholder="name" id="name" required />
+        </div>
+        <input type="submit" class = "submit" value="Add" id="submitAddGroup"/>
+    </fieldset>
+</form>
+#parse("public/bottom.vm")

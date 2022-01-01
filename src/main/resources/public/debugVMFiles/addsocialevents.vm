@@ -1,0 +1,94 @@
+<!--- DEBUG --->
+#set( $title = "Add a Social Event" )
+#parse("public/top.vm")
+<script src = "../js/contenttags.js"></script>
+<script src = "../debugJS/addIndividualsEvents.js"></script>
+<body>
+
+<h2>Add a new Social Event</h2>
+<form action="/socialevents" onsubmit = "return setTagsAndAddSocialEvent()" >
+    <fieldset>
+        <div>
+            <label for="title">Event Title: </label>
+            <input type="text" name="title" placeholder="title" id="title" required />
+        </div>
+        <br />
+        <div>
+            <label for="description">Event Description: </label>
+            <input type="text" name="description" placeholder="description" id="description" required />
+        </div>
+        <br />
+        <div>
+            <label for="addLine1">Address Line 1: </label>
+            <input type="text" name="addLine1" placeholder="addLine1" id="addLine1" required />
+        </div>
+        <br />
+        <div>
+            <label for="addLine2">Address Line 2: </label>
+            <input type="text" name="addLine2" placeholder="addLine2" id="addLine2" />
+        </div>
+        <br />
+        <div>
+            <label for="city">City: </label>
+            <input type="text" name="city" placeholder="city" id="city" required />
+        </div>
+        <br />
+        <div>
+            <label for="state">State: </label>
+            <input type="text" name="state" placeholder="state" id="state" required />
+        </div>
+        <br />
+        <div>
+            <label for="state">ZIP Code: </label>
+            <input type="text" name="zip" placeholder="zip" id="zip" required />
+        </div>
+        <br />
+        <div>
+            <label for="datetime">Event Date: </label>
+            <input type="date" name="datetime" id="datetime" required />
+        </div>
+        <br />
+        <div>
+            <label for="priv">Private Event? </label>
+            <select name = "priv" id = "priv">
+                <option value = "true" selected>Yes</option>
+                <option value = "false">No</option>
+            </select>
+        </div>
+        <br />
+        <div>
+            <label for="organization">Organization Name: </label>
+            <input type="text" name="organization" placeholder="organization name" id="organization" required />
+        </div>
+        <br />
+        <div>
+            <label for="capacity">Event Capacity: </label>
+            <input type="number" name="capacity" id="capacity" />
+        </div>
+        <div>
+            <label for="individual">Select a Host: </label>
+            <select name="individual" id="individual">
+                #foreach($i in $individuals)
+                    <option value="$i.ID" id="$i.ID">$i.name</option>
+                #end
+            </select>
+        </div>
+        <br />
+        <div>
+            <label>Content tag options: </label>
+            <select id = "tags" name = "tags" multiple>
+                <label for="tags">Choose a tag</label>
+                <script>
+                    for (i=0; i< contenttags.tags.length; i++) {
+                        document.write('<option value ="' + contenttags.tags[i] + '">' + contenttags.tags[i] + '</option>');
+                    }
+                </script>
+            </select>
+        </div>
+        <br />
+        <input type="submit" value="Add" id="submitAddSocialEvent" />
+    </fieldset>
+</form>
+
+
+#parse("public/bottom.vm")

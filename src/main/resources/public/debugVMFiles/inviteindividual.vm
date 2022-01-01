@@ -1,0 +1,30 @@
+<!---DEBUG--->
+#set( $title = "Invite an individual to an event" )
+#parse("public/top.vm")
+<form action="/invitations" method="post" >
+<h2 class = "invite">Choose an Event to invite an Individual to:</h2>
+    <fieldset>
+        <div>
+            <label for="event">Select Event: </label>
+            <select name="event" id="event">
+                #foreach($e in $events)
+                    <option value="$e.ID" id="$e.ID">$e.title</option>
+                #end
+            </select>
+        </div>
+        <br />
+        <div>
+            <label for="individual">Select an Individual: </label>
+            <select name="individual" id="individual">
+                #foreach($i in $individuals)
+                    <option value="$i.ID" id="$i.ID">$i.name</option>
+                #end
+            </select>
+        </div>
+        <br />
+        <input type="submit" class = "submit" value="Invite" id="submitAddJob" />
+    </fieldset>
+</form>
+
+
+#parse("public/bottom.vm")

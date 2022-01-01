@@ -1,0 +1,38 @@
+<!--- DEBUG --->
+<button class="open-button" onclick="openForm1()">+</button>
+
+<div class="form-popup-left" id="myForm1">
+    <form class="form-container" onsubmit="return addIndividual()">
+        <h1 style="font-family: Arial">Add Individual</h1> <br>
+        <div>
+            <label for="name">*Name: </label>
+            <input type="text" name="name" placeholder="name" id="name" required />
+        </div>
+        <div>
+            <label for="email">*Email: </label>
+            <input type="text" name="email" placeholder="email" id="email" />
+        </div>
+        <div>
+            <br>
+                <label>Content tag options: </label>
+                <select id = "tags" class = "tags" name = "tags" multiple>
+                    <label for="tags">Choose a tag</label>
+                    <script>
+                        for (i=0; i< contenttags.tags.length; i++) {
+                            document.write('<option value ="' + contenttags.tags[i] + '">' + contenttags.tags[i] + '</option>');
+                        }
+                    </script>
+                </select>
+        </div>
+    <button type="submit" class="btn">add individual</button>
+    <button type="button" class="btn cancel" onclick="closeForm1()">cancel</button>
+    </form>
+</div>
+<script>
+    function openForm1() {
+        document.getElementById("myForm1").style.display = "block";
+    }
+    function closeForm1() {
+        document.getElementById("myForm1").style.display = "none";
+    }
+</script>

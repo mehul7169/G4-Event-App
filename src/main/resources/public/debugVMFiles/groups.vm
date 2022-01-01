@@ -1,0 +1,17 @@
+<!--- DEBUG --->
+<body>
+    #if ($groups)
+    <h1>All groups:</h1>
+    <div>
+        <ol>
+        <p>
+            #foreach($g in $groups)
+                <li>
+                    Name: $g.name
+                </li>
+            #end
+            </p>
+        </ol>
+    </div>
+    #end
+</body>

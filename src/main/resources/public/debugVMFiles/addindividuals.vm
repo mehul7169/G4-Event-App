@@ -1,0 +1,35 @@
+<!--- DEBUG --->
+#set( $title = "Add an Individual" )
+#parse("public/top.vm")
+<script src = "../js/contenttags.js"></script>
+<script src = "../debugJS/addIndividualsEvents.js"></script>
+<body>
+
+<h2>Add a new Individual</h2>
+<form action="/individuals" onsubmit = "return setTagsAndAddIndiv()">
+    <fieldset>
+        <div>
+            <label for="name">Name (first last): </label>
+            <input type="text" name="name" placeholder="name" id="name" required />
+        </div>
+        <br />
+        <div>
+            <label for="email">Email: </label>
+            <input type="text" name="email" placeholder="email@address.com" id="email" required />
+        </div>
+        <br />
+        <div>
+            <label>Choose an interest for your profile:</label>
+            <select id = "tags" name = "tags" multiple="multiple">
+                <script>
+                    for (let i=0; i< contenttags.tags.length; i++) {
+                        document.write('<option value ="' + contenttags.tags[i] + '">' + contenttags.tags[i] + '</option>');
+                    }
+                </script>
+            </select>
+        </div>
+        <br />
+        <button type="submit" class = "submit"> Add Individual </button>
+    </fieldset>
+</form>
+#parse("public/bottom.vm")

@@ -1,0 +1,30 @@
+<!--- DEBUG --->
+#set( $title = "Add a member to a Group" )
+#parse("public/vmFiles/top.vm")
+<form action="/memberships" method="post" >
+    <h2 class = "membership">Choose a Group to add a member to:</h2>
+    <fieldset>
+        <div>
+            <label for="group">Select Event: </label>
+            <select name="group" id="group">
+                #foreach($g in $groups)
+                    <option value="$g.ID" id="$g.ID">$g.name</option>
+                #end
+            </select>
+        </div>
+        <br />
+        <div>
+            <label for="individual">Select an Individual: </label>
+            <select name="individual" id="individual">
+                #foreach($i in $individuals)
+                    <option value="$i.ID" id="$i.ID">$i.name</option>
+                #end
+            </select>
+        </div>
+        <br />
+        <input type="submit" class = "submit" value="Add" id="submitAddJob" />
+    </fieldset>
+</form>
+
+
+#parse("public/vmFiles/bottom.vm")

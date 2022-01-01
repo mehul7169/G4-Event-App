@@ -1,0 +1,13 @@
+<!--- DEBUG --->
+#set( $title = "Add an Event" )
+#parse("public/top.vm")
+<body>
+
+<h2>Create an event. </h2>
+<h3> First, select which kind of event you are hosting from the options below </h3>
+<div>
+    <p><a href="/addsocialevents">Social Event</a></p>
+    <p><a href="/addseminars">Seminar</a></p>
+</div>
+
+#parse("public/bottom.vm")

@@ -1,0 +1,32 @@
+<!--- DEBUG --->
+#set( $title = "Check Out of an Event" )
+#parse("public/vmFiles/top.vm")
+
+<script src = "../js/checkOut.js"></script>
+
+<body>
+<form action="/checkout" method="post" >
+    <h2 class = "checkin">Choose an Event to Check Out Of:</h2>
+    <fieldset>
+        <div>
+            <label for="event">Select Event: </label>
+            <select name="event" id="event" onchange="changeIndividualOptionsBasedOnEvent(this)">
+                #foreach($e in $events)
+                    <option value="$e.ID" id="$e.ID">$e.title</option>
+                #end
+            </select>
+        </div>
+        <br />
+        <div>
+            <label for="individual">Select an Individual: </label>
+            <select name="individual" id="individual">
+                <option value="" id=""> -- select -- </option>
+            </select>
+        </div>
+        <br />
+        <input type="submit" class = "submit" value="Check Out" id="submitAddJob" />
+    </fieldset>
+</form>
+
+
+#parse("public/vmFiles/bottom.vm")

@@ -1,0 +1,22 @@
+<!--- DEBUG --->
+<button class="open-button" onclick="openForm2()">+</button>
+
+<div class="form-popup-left" id="myForm2">
+    <form class="form-container" onsubmit="return addGroup()">
+        <h1 style="font-family: Arial">Add Group</h1> <br>
+        <div>
+            <label for="name"style = "font-size: 10px">*Name: </label>
+            <input type="text" name="groupName" placeholder="group name" id="groupName" required />
+        </div>
+    <button type="submit" class="btn">add group</button>
+    <button type="button" class="btn cancel" onclick="closeForm2()">cancel</button>
+    </form>
+</div>
+<script>
+    function openForm2() {
+        document.getElementById("myForm2").style.display = "block";
+    }
+    function closeForm2() {
+        document.getElementById("myForm2").style.display = "none";
+    }
+</script>

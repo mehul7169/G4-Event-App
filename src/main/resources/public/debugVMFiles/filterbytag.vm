@@ -1,0 +1,27 @@
+<!--- DEBUG --->
+#set( $title = "Filter Events By Content Tag" )
+#parse("public/top.vm")
+<script src = "../js/contenttags.js"></script>
+<body>
+
+<h2>Filter all events by content tag</h2>
+<form action="/filterbytag" method="post" >
+    <fieldset>
+        <div>
+            <label>Content tag options: </label>
+            <select id = "tag" name = "tag">
+                <option value="" disabled selected>Select Tag</option>
+                <label for="tag">Choose a tag</label>
+                <script>
+                    for (i=0; i< contenttags.tags.length; i++) {
+                        document.write('<option value ="' + contenttags.tags[i] + '">' + contenttags.tags[i] + '</option>');
+                    }
+                </script>
+            </select>
+        </div>
+        <br />
+        <input type="submit" value="filter" id="submitFilterByTag" />
+    </fieldset>
+</form>
+
+#parse("public/bottom.vm")

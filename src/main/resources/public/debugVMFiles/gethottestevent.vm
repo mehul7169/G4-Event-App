@@ -1,0 +1,15 @@
+<!--- DEBUG --->
+#set( $title = "Show Events" )
+#parse("public/top.vm")
+<body>
+    #if ($topevent)
+    <h2>All current/upcoming events:</h2>
+    <div>
+        #foreach($e in $topevent)
+            <li>
+                $e.title : $e.description
+            </li>
+        #end
+    </div>
+    #end
+#parse("public/bottom.vm")

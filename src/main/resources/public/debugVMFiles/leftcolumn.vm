@@ -1,0 +1,55 @@
+<!---DEBUG--->
+<script src = "./js/leftColumn.js"></script>
+<script src = "./js/contenttags.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<h3>Add a new individual: </h3>
+<div class = "add-individual" >
+    #parse("public/createIndividualPopUp.vm")
+</div>
+<br>
+<div>
+    <label for="individual"> Select an Individual: </label>
+    <select name="individual" id="individual">
+        <option value="" disabled selected>-- select --</option>
+        #foreach($i in $individuals)
+            <option value="$i.name" id="$i.tag">$i.name</option>
+        #end
+    </select>
+    <script>
+        function docWrite(contentTags) {
+            document.write(contentTags);
+        }
+        var select = document.getElementById('individual');
+        var value = select.options[select.selectedIndex].value;
+        var id = select.options[select.selectedIndex].id;
+        select.onchange = function (e) {
+            var value = this[this.selectedIndex];
+            var id = value.id;
+            document.getElementById('contenttags').innerHTML= id;
+        }
+    </script>
+    <p style="color:#585858; font-family: Century Gothic; font-style: italic;" id="contenttags"></p>
+    <hr size="1" width="90%" color="#585858">
+</div>
+
+<h3 style="color:#585858;"> Registered groups: </h3>
+#parse("public/createGroupPopUp.vm")
+
+
+#if ($groups)
+<div class = "groupsList">
+    <ol>
+    <p>
+        #foreach($g in $groups)
+            <li>
+                Name: $g.name
+            </li>
+        #end
+        </p>
+    </ol>
+</div>
+#end
+
+

@@ -1,0 +1,18 @@
+<!--- DEBUG --->
+<div class="popup">see details
+    <span class="popuptext">$s.getDetails()</span>
+</div>
+
+<script>
+    // When the user clicks on div, open the popup
+    function popItUp() {
+        this.querySelector('.popuptext').classList.toggle("show");
+    }
+    // define all popup elements.
+    let popups = document.querySelectorAll('.popup');
+
+    // add listener to each popup element, which binds handler function to click event.
+    popups.forEach(
+            popup => popup.addEventListener('click', popItUp)
+    );
+</script>

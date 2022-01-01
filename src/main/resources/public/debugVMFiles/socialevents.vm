@@ -1,0 +1,15 @@
+<!---DEBUG--->
+#set( $title = "Show Social Events" )
+#parse("public/top.vm")
+<body>
+    #if ($socialevents)
+    <h1>All current/upcoming social events:</h1>
+    <div>
+        #foreach($s in $socialevents)
+            <li>
+                $s.title : $s.description
+            </li>
+        #end
+    </div>
+    #end
+#parse("public/bottom.vm")

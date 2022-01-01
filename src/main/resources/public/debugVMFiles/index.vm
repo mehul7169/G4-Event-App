@@ -1,0 +1,28 @@
+<!---DEBUG--->
+#set( $title = "Welcome Page" )
+#parse("public/top.vm")
+
+<h2>Welcome to EventApp, $username</h2>
+<div>
+    <p><a href="/individuals">See all individual profiles</a></p>
+    <p><a href="/groups">See all group profiles</a></p>
+    <p><a href="/events">See all events</a></p>
+    <p><a href="/addevents">Add an event</a></p>
+    <p><a href="/addindividuals">Add an individual profile</a></p>
+    <p><a href="/addgroups">Add a group profile</a></p>
+    <p><a href="/inviteindividual">Invite someone to the event!</a></p>
+    <p><a href="/filterbytag">Filter events by content tags!</a></p>
+    <p><a href="/filterbytitleanddescription">Filter events by title and description!</a></p>
+    <p><a href="/addmember">Add a member to a group</a></p>
+    <p><a href="/checkin">Check In To An Event</a></p>
+    <p><a href="/checkout">Check Out of an Event</a></p>
+    <p><a href="/findwhoscheckedin">Find who is at an event</a></p>
+    <p><a href="/findwhosinvited">Find who is invited to an event</a></p>
+    <p><a href="/geteventheat">How hot is an event?</a></p>
+    <p><a href="/gethottestevent">Hottest event?</a></p>
+    <p><a href="/recommendedEvents">Recommended events</a></p>
+
+
+</div>
+
+#parse("public/bottom.vm")

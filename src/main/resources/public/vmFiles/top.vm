@@ -1,0 +1,21 @@
+<!---Top for vm files: contains sign out functionality--->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>$title</title>
+    <link href="../css/eventapp.css" rel="stylesheet">
+</head>
+<body>
+
+<!---Sign out Script--->
+<a href="#" onclick="signOut();">Sign out</a>
+<script>
+    function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+            console.log('User signed out.');
+        });
+    }
+</script>

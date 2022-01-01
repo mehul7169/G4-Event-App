@@ -1,0 +1,19 @@
+<!--- DEBUG --->
+#set( $title = "Search Events By Event Title and Desciption" )
+#parse("public/top.vm")
+<script src = "../js/contenttags.js"></script>
+<body>
+
+<h2>Filter all events by event title and description</h2>
+<form action="/searchbytitleanddescription" method="post" >
+    <fieldset>
+        <div>
+            <label for="searchString">Event title or description </label>
+            <input type="text" name="searchString" id="searchString" required />
+        </div>
+        <br />
+        <input type="submit" value="Filter" id="submitFilterByTitleAndDescription" />
+    </fieldset>
+</form>
+
+#parse("public/bottom.vm")

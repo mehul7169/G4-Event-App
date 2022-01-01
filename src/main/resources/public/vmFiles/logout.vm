@@ -1,0 +1,20 @@
+<!--- HTML for Sign Out Button --->
+
+<a href="#" onclick="signOut();" style = "margin-right:15px" >Sign out</a>
+<script>
+    function signOut() {
+        document.cookie = "loginData=dead; path=/";
+        console.log('User signed out.');
+        window.location = "http://localhost:7000/login";
+    }
+</script>
+
+<!--- Styling --->
+<style>
+    a {
+        color: gray;
+        text-decoration: none;
+    }
+
+</style>
+

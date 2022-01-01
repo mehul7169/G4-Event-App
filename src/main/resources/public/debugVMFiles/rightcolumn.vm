@@ -1,0 +1,77 @@
+<!---DEBUG--->
+<script src = "../js/checkIn.js"></script>
+
+<a href="/index" style="font-family: Arial">DEBUG MENU</a>
+
+<header>
+    <h3>Hottest Event:</h3>
+    #if ($topevent)
+        <div class ="hottestEvent">
+            #foreach($s in $topevent)
+                <li>
+                    <b>$s.title:</b> $s.description
+                    <br> <br>
+                    <b>Host:</b> $s.host.toString()
+                </li>
+            #end
+        </div>
+    #end
+</header>
+
+<br>
+<h3 class = "inviteForm">Invite Someone:</h3>
+<div class="inviteForm">
+    <form action="/invitations" method="post" class = "inviteForm">
+        <fieldset>
+            <div>
+                <label for="event">Select Event: </label>
+                <select name="event" id="event">
+                    #foreach($e in $events)
+                        <option value="$e.ID" id="$e.ID">$e.title</option>
+                    #end
+                </select>
+            </div>
+            <br />
+            <div>
+                <label for="individual">Select an Individual: </label>
+                <select name="individual" id="individual">
+                    #foreach($i in $individuals)
+                        <option value="$i.ID" id="$i.ID">$i.name</option>
+                    #end
+                </select>
+            </div>
+            <br />
+            <input type="submit" class = "submit" value="Invite" id="submitAddJob" />
+        </fieldset>
+    </form>
+</div>
+
+<br>
+<h3>Check Into An Event:</h3>
+<div class="checkIn" style = "border-radius: 25px;">
+    <form action="/checkin" method="post" class = "checkIn"onsubmit="checkInAlert()">
+        <fieldset>
+            <div>
+                <label for="event">Select Event: </label>
+                <select name="event" id="event" onchange="return changeIndividualOptionsBasedOnEvent(this)">
+                    #foreach($e in $events)
+                        <option value="$e.ID" id="$e.ID">$e.title</option>
+                    #end
+                </select>
+            </div>
+            <br />
+            <div>
+                <label for="ind">Select an Individual: </label>
+                <select name="ind" id="ind">
+                    <option value="" id=""> -- select -- </option>
+                </select>
+            </div>
+            <br />
+            <input type="submit" class = "submit" value="Check In" id="submitAddJob" />
+        </fieldset>
+    </form>
+</div>
+
+
+
+

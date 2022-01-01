@@ -1,0 +1,360 @@
+* {
+    box-sizing: border-box;
+}
+.container {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding-top: 65px;
+}
+.logo {
+    height: 65px;
+    margin-top: -65px;
+    text-align: left;
+    background-color: #555555;
+    border-bottom: 5px solid white;
+}
+img {
+    margin-left: 100px;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+}
+/*headers*/
+h1, h2, h3, h4 {
+    color: #585858;
+    font-weight: bolder;
+    font-size: 20px;
+    text-align: center;
+    font-family: Arial
+}
+/* Hottest Event and Event of Interest Container */
+.hottestEvent, .interestEvents, .checkIn .inviteForm{
+    padding: 6px 10px;
+    background-color: white;
+    color: gray;
+    border: none;
+    font-weight: bolder;
+    font-size: 16px;
+    text-align: center;
+}
+/* Create three unequal columns that floats next to each other */
+.column {
+    float: left;
+    padding: 10px;
+    text-align: center;
+    height:calc(100vh - 65px);
+    overflow-y: scroll !important;
+}
+.middle {
+    overflow-x: hidden;
+    width: 50%;
+}
+.right {
+    width: 25%;
+}
+
+.left {
+    width: 25%;
+}
+
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Style the search box inside middle column */
+.column.middle input[type=text] {
+    alignment: center;
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+    width: 70%;
+}
+/*styling search button*/
+.column.middle .search-container button {
+    padding: 6px 10px;
+    background-color: white;
+    color: gray;
+    border: none;
+    font-weight: bolder;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/*see details button*/
+.column.middle .feed-container button.see-details  {
+    padding: 2px 5px;
+    display: inline-block;
+    background-color: darkgray;
+    color: white;
+    border: none;
+    font-weight: bolder;
+    font-size: 13px;
+    text-align: center;
+    margin-left: 200px;
+}
+
+/*vertical space between list items*/
+li {
+    margin: 10px 10px;
+    list-style-type: none;
+    padding: 10px 10px;
+    dispay: inline;
+    color: gray;
+    border: none;
+    background-color: white;
+    text-align: left;
+    font-family: Arial;
+    border-radius: 20px;
+}
+
+label {
+    font-family: Arial;
+    color: #555;
+    font-size: 20px;
+    font-weight: lighter;
+}
+
+/*invite and check in buttons*/
+[type = 'submit'].submit {
+    background-color: gray;
+    color: white;
+    text-align: center;
+    height: 30px;
+    width: 75px;
+    border-radius: 25px;
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* Popup container - can be anything you want */
+.popupSem, .popupSoc {
+    position: relative;
+    float: right;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-radius: 20px;
+    background-color: darkgray;
+    padding: 3px 6px;
+    color: whitesmoke;
+    margin-right: 50px;
+}
+
+/* The actual popup */
+.popupSem .popuptextSem, .popupSoc .popuptextSoc {
+    visibility: hidden;
+    background-color: darkgray;
+    color: whitesmoke;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -170px;
+    width: 275px;
+    height: 75px;
+}
+
+/* Popup arrow */
+.popupSem .popuptextSem::after, .popupSoc .popuptextSoc::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: gray transparent transparent transparent;
+    color: whitesmoke;
+}
+
+/* Toggle this class - hide and show the popup */
+.popupSem .show, .popupSoc .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 500ms;
+    animation: fadeIn 500ms;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+    opacity: 0.8;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: none;
+    font-size: 25px;
+}
+
+/* The popup form - hidden by default */
+.form-popup-right {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    width: 25%;
+}
+
+.form-popup-left {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    width: 25%;
+}
+
+/* Add styles to the form container */
+.form-container {
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    height: 100%;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+    height: 100%;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+    height: 100%;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+    background-color: red;
+}
+.form-popup-left {
+    overflow-y: scroll !important;
+    height: 100%;
+}
+
+.form-popup-right {
+    overflow-y: scroll !important;
+    max-height: 100%;
+}
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+}
+
+.column.right .hottestEvent, .column.right .interestEvents, .column.right .checkIn {
+    background-color: white;
+    padding: 2px 10px;
+    margin-bottom: 10px;
+    color:gray;
+    font-family: "Arial";
+}
+
+/*delete event button*/
+button.deleteSeminar, button.deleteSocialEvent  {
+    border-radius: 50%;
+    border: 2px solid red;
+    width: 25px;
+    height: 25px;
+    color: white;
+    background-color: red;
+    display: inline-block;
+    padding: 0;
+    float: right;
+}
+
+button.deleteSeminar:hover, button.deleteSocialEvent:hover   {
+    border-radius: 50%;
+    border: 2px solid whitesmoke;
+    width: 25px;
+    height: 25px;
+    color: red;
+    background-color: white;
+    display: inline-block;
+    padding: 0;
+}
+/*invite and check in forms*/
+form.inviteForm, form.checkIn {
+    background-color: white;
+    outline: none;
+    border-radius: 25px;
+}
+
+/*hottest event*/
+div.hottestEvent {
+    color: #585858;
+    border-radius: 25px;
+}
+
+fieldset {
+    border: 0;
+}
+
+body {
+    overflow: hidden; /* Hide right scrollbar */
+}
+/*make scrollbar invisible but still allow for scrolling*/
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+/*fix listing spaces for groups*/
+.groupsList {
+    margin-left: -20px;
+    margin-right: 10px;
+}
+

@@ -1,0 +1,89 @@
+<!---DEBUG--->
+<script src = "../js/eventFeedColumn.js"></script>
+<script src = "../js/contenttags.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<div class="search-container">
+    <form action="/searchbytitleanddescription">
+        <input type="text" placeholder="Search events by title and description.." name="searchString" id = "searchString">
+        <button onclick = "displaySearchResults()"><i class="fa fa-search"></i></button>
+        <button onclick = refreshHome() class ="clear-search"> Clear </button>
+    </form>
+</div>
+<br>
+<div class="filter-by-tag">
+    <form action="/filterbytag">
+        <label>Filter by content tag: </label>
+        <select id = "tag" name = "tag">
+            <option value="" disabled selected>-- select --</option>
+            <script>
+                for (i=0; i< contenttags.tags.length; i++) {
+                    document.write('<option value ="' + contenttags.tags[i] + '" id = "filteredTag">' + contenttags.tags[i] + '</option>');
+                }
+            </script>
+        </select>
+        <button onclick = "displayFilterResults()">filter</button>
+    </form>
+</div>
+<br>
+<div class = "add-event" >
+    #parse("public/addEventPopUp.vm")
+</div>
+<br>
+<div class = "feed-container">
+    #if($socialevents)
+        <label> Social Events </label>
+        #foreach($s in $socialevents)
+            <li>
+                <b>Host:</b> $s.host.toString() - <b>Organization:</b> $s.organization
+                <button class = "deleteSocialEvent" id = "deleteSocialEvent" value = "$s.title" onclick = "return deleteSocialEvent($s.ID)"> X </button>
+                <br>
+                <div class="popupSoc">see details
+                    <span class="popuptextSoc">$s.getDetails()</span>
+                </div>
+                <br>
+                $s.title: $s.description
+                <br>
+            </li>
+        #end
+    #end
+    <br>
+    #if($seminars)
+        <label> Seminars </label>
+        #foreach($s in $seminars)
+            <li>
+                <b>Host:</b> $s.host.toString() - <b>School:</b> $s.school - <b>Speaker:</b> $s.speaker
+                <button class = "deleteSeminar" id = "deleteSeminar" value = "$s.title" onclick = "return deleteSeminar($s.ID)"> X </button>
+                <br>
+                <b>School:</b> $s.school - <b>Field:</b> $s.field
+                <div class="popupSem">see details
+                    <span class="popuptextSem">$s.getDetails()</span>
+                </div>
+                <br>
+                $s.title: $s.description
+            </li>
+        #end
+    #end
+
+    <script>
+        // When the user clicks on div, open the popup
+        function popItUpSoc() {
+            this.querySelector('.popuptextSoc').classList.toggle("show");
+        }
+        function popItUpSem() {
+            this.querySelector('.popuptextSem').classList.toggle("show");
+        }
+        // define all popup elements.
+        let popupsSoc = document.querySelectorAll('.popupSoc');
+        let popupsSem = document.querySelectorAll('.popupSem');
+
+        // add listener to each popup element, which binds handler function to click event.
+        popupsSoc.forEach(
+                popupSoc => popupSoc.addEventListener('click', popItUpSoc)
+        );
+        popupsSem.forEach(
+                popupSem => popupSem.addEventListener('click', popItUpSem)
+        );
+    </script>
+
+</div>
